@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Suyeol Jeon (xoul.kr)
+// Copyright (c) 2016 Jhink Solutions (jhink.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,125 +21,125 @@
 // SOFTWARE.
 
 import XCTest
-@testable import URLNavigator
+@testable import DeepNavigator
 
-class URLNavigatorInternalTests: XCTestCase {
+class DeepNavigatorInternalTests: XCTestCase {
 
     func testMatchURL() {
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", from: []))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", from: []))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", from: ["myapp://comment/<id>"]))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", from: ["myapp://comment/<id>"]))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", from: ["myapp://user/<id>/hello"]))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", from: ["myapp://user/<id>/hello"]))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("/user/1", scheme: "myapp", from: []))
+            XCTAssertNil(DeepNavigator.matchURL("/user/1", scheme: "myapp", from: []))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("/user/1", scheme: "myapp", from: ["myapp://comment/<id>"]))
+            XCTAssertNil(DeepNavigator.matchURL("/user/1", scheme: "myapp", from: ["myapp://comment/<id>"]))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("/user/1", scheme: "myapp", from: ["myapp://user/<id>/hello"]))
+            XCTAssertNil(DeepNavigator.matchURL("/user/1", scheme: "myapp", from: ["myapp://user/<id>/hello"]))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", scheme: "myapp", from: []))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", scheme: "myapp", from: []))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", scheme: "myapp", from: ["myapp://comment/<id>"]))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", scheme: "myapp", from: ["myapp://comment/<id>"]))
         }();
         {
-            XCTAssertNil(URLNavigator.matchURL("myapp://user/1", scheme: "myapp", from: ["myapp://user/<id>/hello"]))
+            XCTAssertNil(DeepNavigator.matchURL("myapp://user/1", scheme: "myapp", from: ["myapp://user/<id>/hello"]))
         }();
         {
             let from = ["myapp://hello"]
-            let (URLPattern, values) = URLNavigator.matchURL("myapp://hello", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("myapp://hello", from: from)!
             XCTAssertEqual(URLPattern, "myapp://hello")
             XCTAssertEqual(values.count, 0)
 
-            let scheme = URLNavigator.matchURL("/hello", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("/hello", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["myapp://user/<id>"]
-            let (URLPattern, values) = URLNavigator.matchURL("myapp://user/1", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("myapp://user/1", from: from)!
             XCTAssertEqual(URLPattern, "myapp://user/<id>")
             XCTAssertEqual(values as! [String: String], ["id": "1"])
 
-            let scheme = URLNavigator.matchURL("/user/1", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("/user/1", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["myapp://user/<id>", "myapp://user/<id>/hello"]
-            let (URLPattern, values) = URLNavigator.matchURL("myapp://user/1", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("myapp://user/1", from: from)!
             XCTAssertEqual(URLPattern, "myapp://user/<id>")
             XCTAssertEqual(values as! [String: String], ["id": "1"])
 
-            let scheme = URLNavigator.matchURL("/user/1", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("/user/1", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["myapp://user/<id>", "myapp://user/<id>/<object>"]
-            let (URLPattern, values) = URLNavigator.matchURL("myapp://user/1/posts", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("myapp://user/1/posts", from: from)!
             XCTAssertEqual(URLPattern, "myapp://user/<id>/<object>")
             XCTAssertEqual(values as! [String: String], ["id": "1", "object": "posts"])
 
-            let scheme = URLNavigator.matchURL("/user/1/posts", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("/user/1/posts", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["myapp://alert"]
-            let (URLPattern, values) = URLNavigator.matchURL("myapp://alert?title=hello&message=world", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("myapp://alert?title=hello&message=world", from: from)!
             XCTAssertEqual(URLPattern, "myapp://alert")
             XCTAssertEqual(values.count, 0)
 
-            let scheme = URLNavigator.matchURL("/alert?title=hello&message=world", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("/alert?title=hello&message=world", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["http://<path:url>"]
-            let (URLPattern, values) = URLNavigator.matchURL("http://xoul.kr", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("http://jhink.com", from: from)!
             XCTAssertEqual(URLPattern, "http://<path:url>")
-            XCTAssertEqual(values as! [String: String], ["url": "xoul.kr"])
+            XCTAssertEqual(values as! [String: String], ["url": "jhink.com"])
 
-            let scheme = URLNavigator.matchURL("http://xoul.kr", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("http://jhink.com", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["http://<path:url>"]
-            let (URLPattern, values) = URLNavigator.matchURL("http://xoul.kr/resume", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("http://jhink.com/contact", from: from)!
             XCTAssertEqual(URLPattern, "http://<path:url>")
-            XCTAssertEqual(values as! [String: String], ["url": "xoul.kr/resume"])
+            XCTAssertEqual(values as! [String: String], ["url": "jhink.com/contact"])
 
-            let scheme = URLNavigator.matchURL("http://xoul.kr/resume", scheme: "myapp", from: from)!
+            let scheme = DeepNavigator.matchURL("http://jhink.com/contact", scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
         }();
         {
             let from = ["http://<path:url>"]
-            let (URLPattern, values) = URLNavigator.matchURL("http://google.com/search?q=URLNavigator", from: from)!
-            XCTAssertEqual(URLPattern, "http://<path:url>")
-            XCTAssertEqual(values as! [String: String], ["url": "google.com/search"])
-
-            let scheme = URLNavigator.matchURL("http://google.com/search?q=URLNavigator", scheme: "myapp", from: from)!
-            XCTAssertEqual(URLPattern, scheme.0)
-            XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
-        }();
-        {
-            let from = ["http://<path:url>"]
-            let (URLPattern, values) = URLNavigator.matchURL("http://google.com/search/?q=URLNavigator", from: from)!
+            let (URLPattern, values) = DeepNavigator.matchURL("http://google.com/search?q=DeepNavigator", from: from)!
             XCTAssertEqual(URLPattern, "http://<path:url>")
             XCTAssertEqual(values as! [String: String], ["url": "google.com/search"])
 
-            let scheme = URLNavigator.matchURL("http://google.com/search/?q=URLNavigator",
+            let scheme = DeepNavigator.matchURL("http://google.com/search?q=DeepNavigator", scheme: "myapp", from: from)!
+            XCTAssertEqual(URLPattern, scheme.0)
+            XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
+        }();
+        {
+            let from = ["http://<path:url>"]
+            let (URLPattern, values) = DeepNavigator.matchURL("http://google.com/search/?q=DeepNavigator", from: from)!
+            XCTAssertEqual(URLPattern, "http://<path:url>")
+            XCTAssertEqual(values as! [String: String], ["url": "google.com/search"])
+
+            let scheme = DeepNavigator.matchURL("http://google.com/search/?q=DeepNavigator",
                                                scheme: "myapp", from: from)!
             XCTAssertEqual(URLPattern, scheme.0)
             XCTAssertEqual(values as! [String: String], scheme.1 as! [String: String])
@@ -147,21 +147,21 @@ class URLNavigatorInternalTests: XCTestCase {
     }
 
     func testURLWithScheme() {
-        XCTAssertEqual(URLNavigator.URLWithScheme(nil, "myapp://user/1").URLStringValue, "myapp://user/1")
-        XCTAssertEqual(URLNavigator.URLWithScheme("myapp", "/user/1").URLStringValue, "myapp://user/1")
-        XCTAssertEqual(URLNavigator.URLWithScheme("", "/user/1").URLStringValue, "://user/1") // idiot
+        XCTAssertEqual(DeepNavigator.URLWithScheme(nil, "myapp://user/1").URLStringValue, "myapp://user/1")
+        XCTAssertEqual(DeepNavigator.URLWithScheme("myapp", "/user/1").URLStringValue, "myapp://user/1")
+        XCTAssertEqual(DeepNavigator.URLWithScheme("", "/user/1").URLStringValue, "://user/1") // idiot
     }
 
     func testNormalizedURL() {
-        XCTAssertEqual(URLNavigator.normalizedURL("myapp://user/<id>/hello").URLStringValue, "myapp://user/<id>/hello")
-        XCTAssertEqual(URLNavigator.normalizedURL("myapp:///////user///<id>//hello/??/#abc=/def").URLStringValue,
+        XCTAssertEqual(DeepNavigator.normalizedURL("myapp://user/<id>/hello").URLStringValue, "myapp://user/<id>/hello")
+        XCTAssertEqual(DeepNavigator.normalizedURL("myapp:///////user///<id>//hello/??/#abc=/def").URLStringValue,
             "myapp://user/<id>/hello")
-        XCTAssertEqual(URLNavigator.normalizedURL("https://<path:_>").URLStringValue, "https://<path:_>")
+        XCTAssertEqual(DeepNavigator.normalizedURL("https://<path:_>").URLStringValue, "https://<path:_>")
     }
 
     func testPlaceholderValueFromURLPathComponents() {
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<id>",
                 URLPathComponents: ["123", "456"],
                 atIndex: 0
@@ -170,7 +170,7 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertEqual(placeholder?.1 as? String, "123")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<int:id>",
                 URLPathComponents: ["123", "456"],
                 atIndex: 0
@@ -179,7 +179,7 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertEqual(placeholder?.1 as? Int, 123)
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<int:id>",
                 URLPathComponents: ["abc", "456"],
                 atIndex: 0
@@ -187,7 +187,7 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertNil(placeholder)
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<float:height>",
                 URLPathComponents: ["180", "456"],
                 atIndex: 0
@@ -196,7 +196,7 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertEqual(placeholder?.1 as? Float, 180)
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<float:height>",
                 URLPathComponents: ["abc", "456"],
                 atIndex: 0
@@ -204,43 +204,43 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertNil(placeholder)
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<url>",
-                URLPathComponents: ["xoul.kr"],
+                URLPathComponents: ["jhink.com"],
                 atIndex: 0
             )
             XCTAssertEqual(placeholder?.0, "url")
-            XCTAssertEqual(placeholder?.1 as? String, "xoul.kr")
+            XCTAssertEqual(placeholder?.1 as? String, "jhink.com")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<url>",
-                URLPathComponents: ["xoul.kr", "resume"],
+                URLPathComponents: ["jhink.com", "contact"],
                 atIndex: 0
             )
             XCTAssertEqual(placeholder?.0, "url")
-            XCTAssertEqual(placeholder?.1 as? String, "xoul.kr")
+            XCTAssertEqual(placeholder?.1 as? String, "jhink.com")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<path:url>",
-                URLPathComponents: ["xoul.kr"],
+                URLPathComponents: ["jhink.com"],
                 atIndex: 0
             )
             XCTAssertEqual(placeholder?.0, "url")
-            XCTAssertEqual(placeholder?.1 as? String, "xoul.kr")
+            XCTAssertEqual(placeholder?.1 as? String, "jhink.com")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<path:url>",
-                URLPathComponents: ["xoul.kr", "resume"],
+                URLPathComponents: ["jhink.com", "contact"],
                 atIndex: 0
             )
             XCTAssertEqual(placeholder?.0, "url")
-            XCTAssertEqual(placeholder?.1 as? String, "xoul.kr/resume")
+            XCTAssertEqual(placeholder?.1 as? String, "jhink.com/contact")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<path:url>",
                 URLPathComponents: ["google.com", "search?q=test"],
                 atIndex: 0
@@ -249,7 +249,7 @@ class URLNavigatorInternalTests: XCTestCase {
             XCTAssertEqual(placeholder?.1 as? String, "google.com/search?q=test")
         }();
         {
-            let placeholder = URLNavigator.placeholderKeyValueFromURLPatternPathComponent(
+            let placeholder = DeepNavigator.placeholderKeyValueFromURLPatternPathComponent(
                 "<path:url>",
                 URLPathComponents: ["google.com", "search", "?q=test"],
                 atIndex: 0
@@ -260,8 +260,8 @@ class URLNavigatorInternalTests: XCTestCase {
     }
 
     func testReplaceRegex() {
-        XCTAssertEqual(URLNavigator.replaceRegex("a", "0", "abc"), "0bc")
-        XCTAssertEqual(URLNavigator.replaceRegex("\\d", "A", "1234567abc098"), "AAAAAAAabcAAA")
+        XCTAssertEqual(DeepNavigator.replaceRegex("a", "0", "abc"), "0bc")
+        XCTAssertEqual(DeepNavigator.replaceRegex("\\d", "A", "1234567abc098"), "AAAAAAAabcAAA")
     }
 
 }

@@ -2,20 +2,20 @@
 //  ViewController.swift
 //  Example
 //
-//  Created by Suyeol Jeon on 7/12/16.
-//  Copyright © 2016 Suyeol Jeon. All rights reserved.
+//  Created by Jhink Solutions on 7/12/16.
+//  Copyright © 2016 Jhink Solutions. All rights reserved.
 //
 
 import UIKit
 
-import URLNavigator
+import DeepNavigator
 
 class UserListViewController: UIViewController {
 
     // MARK: Properties
 
     let users = [
-        "devxoul",
+        "wejhink",
         "apple",
         "google",
         "facebook",

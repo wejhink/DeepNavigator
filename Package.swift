@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Suyeol Jeon (xoul.kr)
+// Copyright (c) 2016 Jhink Solutions (jhink.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,5 +23,5 @@
 import PackageDescription
 
 let package = Package(
-    name: "URLNavigator"
+    name: "DeepNavigator"
 )

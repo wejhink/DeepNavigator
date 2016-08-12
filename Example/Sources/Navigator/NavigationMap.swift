@@ -1,14 +1,14 @@
 //
 //  NavigationMap.swift
-//  URLNavigator
+//  DeepNavigator
 //
-//  Created by Suyeol Jeon on 7/12/16.
-//  Copyright © 2016 Suyeol Jeon. All rights reserved.
+//  Created by Jhink Solutions on 7/12/16.
+//  Copyright © 2016 Jhink Solutions. All rights reserved.
 //
 
 import UIKit
 
-import URLNavigator
+import DeepNavigator
 
 struct NavigationMap {
 
@@ -19,7 +19,7 @@ struct NavigationMap {
         Navigator.map("navigator://alert", self.alert)
     }
 
-    private static func alert(URL: URLConvertible, values: [String: AnyObject]) -> Bool {
+    private static func alert(URL: DeepConvertible, values: [String: AnyObject]) -> Bool {
         let title = URL.queryParameters["title"]
         let message = URL.queryParameters["message"]
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)

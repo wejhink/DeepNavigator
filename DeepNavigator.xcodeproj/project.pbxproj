@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03032BB81CCBA94B00F7EBFD /* URLConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03032BB61CCBA93400F7EBFD /* URLConvertibleTests.swift */; };
-		03107EDD1C6364E700DF2F14 /* URLNavigator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03107EDA1C6364E700DF2F14 /* URLNavigator.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		03107EE01C63653900DF2F14 /* URLNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EDF1C63653900DF2F14 /* URLNavigator.swift */; };
-		03107EE21C6365BF00DF2F14 /* URLNavigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EE11C6365BF00DF2F14 /* URLNavigable.swift */; };
-		03107EE41C6365E500DF2F14 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EE31C6365E500DF2F14 /* URLConvertible.swift */; };
+		03032BB81CCBA94B00F7EBFD /* DeepConvertibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03032BB61CCBA93400F7EBFD /* DeepConvertibleTests.swift */; };
+		03107EDD1C6364E700DF2F14 /* DeepNavigator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03107EDA1C6364E700DF2F14 /* DeepNavigator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03107EE01C63653900DF2F14 /* DeepNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EDF1C63653900DF2F14 /* DeepNavigator.swift */; };
+		03107EE21C6365BF00DF2F14 /* DeepNavigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EE11C6365BF00DF2F14 /* DeepNavigable.swift */; };
+		03107EE41C6365E500DF2F14 /* DeepConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EE31C6365E500DF2F14 /* DeepConvertible.swift */; };
 		03107EE61C6366F500DF2F14 /* UIViewController+TopMostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EE51C6366F500DF2F14 /* UIViewController+TopMostViewController.swift */; };
-		03107EF01C636A3D00DF2F14 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* URLNavigator.framework */; };
-		03107EF91C636A7500DF2F14 /* URLNavigatorInternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EF71C636A5500DF2F14 /* URLNavigatorInternalTests.swift */; };
-		03107EFC1C67289100DF2F14 /* URLNavigatorPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EFA1C67288400DF2F14 /* URLNavigatorPublicTests.swift */; };
-		03D35E781D35289200452731 /* URLNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* URLNavigator.framework */; };
-		03D35E791D35289200452731 /* URLNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* URLNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		03107EF01C636A3D00DF2F14 /* DeepNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */; };
+		03107EF91C636A7500DF2F14 /* DeepNavigatorInternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EF71C636A5500DF2F14 /* DeepNavigatorInternalTests.swift */; };
+		03107EFC1C67289100DF2F14 /* DeepNavigatorPublicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03107EFA1C67288400DF2F14 /* DeepNavigatorPublicTests.swift */; };
+		03D35E781D35289200452731 /* DeepNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */; };
+		03D35E791D35289200452731 /* DeepNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		03D35E881D3528F800452731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D35E7F1D3528F800452731 /* Assets.xcassets */; };
 		03D35E891D3528F800452731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D35E801D3528F800452731 /* LaunchScreen.storyboard */; };
 		03D35E8C1D3528F800452731 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03D35E871D3528F800452731 /* Info.plist */; };
@@ -39,14 +39,14 @@
 			containerPortal = 03107EC51C6362E800DF2F14 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 03107ECD1C6362E800DF2F14;
-			remoteInfo = URLNavigator;
+			remoteInfo = DeepNavigator;
 		};
 		03D35E7A1D35289200452731 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 03107EC51C6362E800DF2F14 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 03107ECD1C6362E800DF2F14;
-			remoteInfo = URLNavigator;
+			remoteInfo = DeepNavigator;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,7 +57,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				03D35E791D35289200452731 /* URLNavigator.framework in Embed Frameworks */,
+				03D35E791D35289200452731 /* DeepNavigator.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,17 +65,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03032BB61CCBA93400F7EBFD /* URLConvertibleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConvertibleTests.swift; sourceTree = "<group>"; };
-		03107ECE1C6362E800DF2F14 /* URLNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URLNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		03107EDA1C6364E700DF2F14 /* URLNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLNavigator.h; sourceTree = "<group>"; };
+		03032BB61CCBA93400F7EBFD /* DeepConvertibleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepConvertibleTests.swift; sourceTree = "<group>"; };
+		03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DeepNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03107EDA1C6364E700DF2F14 /* DeepNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeepNavigator.h; sourceTree = "<group>"; };
 		03107EDC1C6364E700DF2F14 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03107EDF1C63653900DF2F14 /* URLNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLNavigator.swift; sourceTree = "<group>"; };
-		03107EE11C6365BF00DF2F14 /* URLNavigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLNavigable.swift; sourceTree = "<group>"; };
-		03107EE31C6365E500DF2F14 /* URLConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		03107EDF1C63653900DF2F14 /* DeepNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepNavigator.swift; sourceTree = "<group>"; };
+		03107EE11C6365BF00DF2F14 /* DeepNavigable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepNavigable.swift; sourceTree = "<group>"; };
+		03107EE31C6365E500DF2F14 /* DeepConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepConvertible.swift; sourceTree = "<group>"; };
 		03107EE51C6366F500DF2F14 /* UIViewController+TopMostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMostViewController.swift"; sourceTree = "<group>"; };
-		03107EEB1C636A3D00DF2F14 /* URLNavigatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLNavigatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		03107EF71C636A5500DF2F14 /* URLNavigatorInternalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLNavigatorInternalTests.swift; sourceTree = "<group>"; };
-		03107EFA1C67288400DF2F14 /* URLNavigatorPublicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLNavigatorPublicTests.swift; sourceTree = "<group>"; };
+		03107EEB1C636A3D00DF2F14 /* DeepNavigatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepNavigatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03107EF71C636A5500DF2F14 /* DeepNavigatorInternalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepNavigatorInternalTests.swift; sourceTree = "<group>"; };
+		03107EFA1C67288400DF2F14 /* DeepNavigatorPublicTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepNavigatorPublicTests.swift; sourceTree = "<group>"; };
 		03D35E661D35209600452731 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D35E7F1D3528F800452731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03D35E811D3528F800452731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03107EF01C636A3D00DF2F14 /* URLNavigator.framework in Frameworks */,
+				03107EF01C636A3D00DF2F14 /* DeepNavigator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D35E781D35289200452731 /* URLNavigator.framework in Frameworks */,
+				03D35E781D35289200452731 /* DeepNavigator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +133,8 @@
 		03107ECF1C6362E800DF2F14 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03107ECE1C6362E800DF2F14 /* URLNavigator.framework */,
-				03107EEB1C636A3D00DF2F14 /* URLNavigatorTests.xctest */,
+				03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */,
+				03107EEB1C636A3D00DF2F14 /* DeepNavigatorTests.xctest */,
 				03D35E661D35209600452731 /* Example.app */,
 			);
 			name = Products;
@@ -143,10 +143,10 @@
 		03107ED91C6364E700DF2F14 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				03107EDA1C6364E700DF2F14 /* URLNavigator.h */,
-				03107EDF1C63653900DF2F14 /* URLNavigator.swift */,
-				03107EE11C6365BF00DF2F14 /* URLNavigable.swift */,
-				03107EE31C6365E500DF2F14 /* URLConvertible.swift */,
+				03107EDA1C6364E700DF2F14 /* DeepNavigator.h */,
+				03107EDF1C63653900DF2F14 /* DeepNavigator.swift */,
+				03107EE11C6365BF00DF2F14 /* DeepNavigable.swift */,
+				03107EE31C6365E500DF2F14 /* DeepConvertible.swift */,
 				03107EE51C6366F500DF2F14 /* UIViewController+TopMostViewController.swift */,
 			);
 			path = Sources;
@@ -163,9 +163,9 @@
 		03107EF61C636A5500DF2F14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				03107EF71C636A5500DF2F14 /* URLNavigatorInternalTests.swift */,
-				03107EFA1C67288400DF2F14 /* URLNavigatorPublicTests.swift */,
-				03032BB61CCBA93400F7EBFD /* URLConvertibleTests.swift */,
+				03107EF71C636A5500DF2F14 /* DeepNavigatorInternalTests.swift */,
+				03107EFA1C67288400DF2F14 /* DeepNavigatorPublicTests.swift */,
+				03032BB61CCBA93400F7EBFD /* DeepConvertibleTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -261,16 +261,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03107EDD1C6364E700DF2F14 /* URLNavigator.h in Headers */,
+				03107EDD1C6364E700DF2F14 /* DeepNavigator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		03107ECD1C6362E800DF2F14 /* URLNavigator */ = {
+		03107ECD1C6362E800DF2F14 /* DeepNavigator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03107ED61C6362E800DF2F14 /* Build configuration list for PBXNativeTarget "URLNavigator" */;
+			buildConfigurationList = 03107ED61C6362E800DF2F14 /* Build configuration list for PBXNativeTarget "DeepNavigator" */;
 			buildPhases = (
 				03107EC91C6362E800DF2F14 /* Sources */,
 				03107ECA1C6362E800DF2F14 /* Frameworks */,
@@ -281,14 +281,14 @@
 			);
 			dependencies = (
 			);
-			name = URLNavigator;
-			productName = URLNavigator;
-			productReference = 03107ECE1C6362E800DF2F14 /* URLNavigator.framework */;
+			name = DeepNavigator;
+			productName = DeepNavigator;
+			productReference = 03107ECE1C6362E800DF2F14 /* DeepNavigator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		03107EEA1C636A3D00DF2F14 /* URLNavigatorTests */ = {
+		03107EEA1C636A3D00DF2F14 /* DeepNavigatorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03107EF51C636A3D00DF2F14 /* Build configuration list for PBXNativeTarget "URLNavigatorTests" */;
+			buildConfigurationList = 03107EF51C636A3D00DF2F14 /* Build configuration list for PBXNativeTarget "DeepNavigatorTests" */;
 			buildPhases = (
 				03107EE71C636A3D00DF2F14 /* Sources */,
 				03107EE81C636A3D00DF2F14 /* Frameworks */,
@@ -299,9 +299,9 @@
 			dependencies = (
 				03107EF21C636A3D00DF2F14 /* PBXTargetDependency */,
 			);
-			name = URLNavigatorTests;
-			productName = URLNavigatorTests;
-			productReference = 03107EEB1C636A3D00DF2F14 /* URLNavigatorTests.xctest */;
+			name = DeepNavigatorTests;
+			productName = DeepNavigatorTests;
+			productReference = 03107EEB1C636A3D00DF2F14 /* DeepNavigatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		03D35E651D35209600452731 /* Example */ = {
@@ -331,7 +331,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = "Suyeol Jeon";
+				ORGANIZATIONNAME = "Jhink Solutions";
 				TargetAttributes = {
 					03107ECD1C6362E800DF2F14 = {
 						CreatedOnToolsVersion = 7.2;
@@ -344,7 +344,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 03107EC81C6362E800DF2F14 /* Build configuration list for PBXProject "URLNavigator" */;
+			buildConfigurationList = 03107EC81C6362E800DF2F14 /* Build configuration list for PBXProject "DeepNavigator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -357,8 +357,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				03107ECD1C6362E800DF2F14 /* URLNavigator */,
-				03107EEA1C636A3D00DF2F14 /* URLNavigatorTests */,
+				03107ECD1C6362E800DF2F14 /* DeepNavigator */,
+				03107EEA1C636A3D00DF2F14 /* DeepNavigatorTests */,
 				03D35E651D35209600452731 /* Example */,
 			);
 		};
@@ -397,9 +397,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03107EE61C6366F500DF2F14 /* UIViewController+TopMostViewController.swift in Sources */,
-				03107EE01C63653900DF2F14 /* URLNavigator.swift in Sources */,
-				03107EE41C6365E500DF2F14 /* URLConvertible.swift in Sources */,
-				03107EE21C6365BF00DF2F14 /* URLNavigable.swift in Sources */,
+				03107EE01C63653900DF2F14 /* DeepNavigator.swift in Sources */,
+				03107EE41C6365E500DF2F14 /* DeepConvertible.swift in Sources */,
+				03107EE21C6365BF00DF2F14 /* DeepNavigable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,9 +407,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03107EF91C636A7500DF2F14 /* URLNavigatorInternalTests.swift in Sources */,
-				03107EFC1C67289100DF2F14 /* URLNavigatorPublicTests.swift in Sources */,
-				03032BB81CCBA94B00F7EBFD /* URLConvertibleTests.swift in Sources */,
+				03107EF91C636A7500DF2F14 /* DeepNavigatorInternalTests.swift in Sources */,
+				03107EFC1C67289100DF2F14 /* DeepNavigatorPublicTests.swift in Sources */,
+				03032BB81CCBA94B00F7EBFD /* DeepConvertibleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,12 +435,12 @@
 /* Begin PBXTargetDependency section */
 		03107EF21C636A3D00DF2F14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 03107ECD1C6362E800DF2F14 /* URLNavigator */;
+			target = 03107ECD1C6362E800DF2F14 /* DeepNavigator */;
 			targetProxy = 03107EF11C636A3D00DF2F14 /* PBXContainerItemProxy */;
 		};
 		03D35E7B1D35289200452731 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 03107ECD1C6362E800DF2F14 /* URLNavigator */;
+			target = 03107ECD1C6362E800DF2F14 /* DeepNavigator */;
 			targetProxy = 03D35E7A1D35289200452731 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -557,7 +557,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.URLNavigator;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.DeepNavigator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -575,7 +575,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.URLNavigator;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.DeepNavigator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -587,7 +587,7 @@
 				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.URLNavigatorTests;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.DeepNavigatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -598,7 +598,7 @@
 				INFOPLIST_FILE = "Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.URLNavigatorTests;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.xoul.DeepNavigatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -632,7 +632,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03107EC81C6362E800DF2F14 /* Build configuration list for PBXProject "URLNavigator" */ = {
+		03107EC81C6362E800DF2F14 /* Build configuration list for PBXProject "DeepNavigator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03107ED41C6362E800DF2F14 /* Debug */,
@@ -641,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03107ED61C6362E800DF2F14 /* Build configuration list for PBXNativeTarget "URLNavigator" */ = {
+		03107ED61C6362E800DF2F14 /* Build configuration list for PBXNativeTarget "DeepNavigator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03107ED71C6362E800DF2F14 /* Debug */,
@@ -650,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03107EF51C636A3D00DF2F14 /* Build configuration list for PBXNativeTarget "URLNavigatorTests" */ = {
+		03107EF51C636A3D00DF2F14 /* Build configuration list for PBXNativeTarget "DeepNavigatorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03107EF31C636A3D00DF2F14 /* Debug */,

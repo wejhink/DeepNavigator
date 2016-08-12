@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
-  s.name             = "URLNavigator"
+  s.name             = "DeepNavigator"
   s.version          = "0.6.0"
   s.summary          = "⛵️ Elegant URL Routing for Swift"
-  s.homepage         = "https://github.com/devxoul/URLNavigator"
+  s.homepage         = "https://github.com/wejhink/DeepNavigator"
   s.license          = { :type => "MIT", :file => "LICENSE" }
-  s.author           = { "Suyeol Jeon" => "devxoul@gmail.com" }
-  s.source           = { :git => "https://github.com/devxoul/URLNavigator.git",
+  s.author           = { "Jhink Solutions" => "we@jhink.com" }
+  s.source           = { :git => "https://github.com/wejhink/DeepNavigator.git",
                          :tag => s.version.to_s }
   s.source_files     = "Sources/*.swift"
   s.frameworks       = 'UIKit', 'Foundation'

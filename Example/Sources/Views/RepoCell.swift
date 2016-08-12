@@ -1,9 +1,9 @@
 //
 //  RepoCell.swift
-//  URLNavigator
+//  DeepNavigator
 //
-//  Created by Suyeol Jeon on 7/12/16.
-//  Copyright © 2016 Suyeol Jeon. All rights reserved.
+//  Created by Jhink Solutions on 7/12/16.
+//  Copyright © 2016 Jhink Solutions. All rights reserved.
 //
 
 import UIKit

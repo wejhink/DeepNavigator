@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Suyeol Jeon (xoul.kr)
+// Copyright (c) 2016 Jhink Solutions (jhink.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +22,12 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for URLNavigator.
-FOUNDATION_EXPORT double URLNavigatorVersionNumber;
+//! Project version number for DeepNavigator.
+FOUNDATION_EXPORT double DeepNavigatorVersionNumber;
 
-//! Project version string for URLNavigator.
-FOUNDATION_EXPORT const unsigned char URLNavigatorVersionString[];
+//! Project version string for DeepNavigator.
+FOUNDATION_EXPORT const unsigned char DeepNavigatorVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <URLNavigator/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <DeepNavigator/PublicHeader.h>
 
 

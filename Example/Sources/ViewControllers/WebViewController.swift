@@ -1,15 +1,15 @@
 //
 //  WebViewController.swift
-//  URLNavigator
+//  DeepNavigator
 //
-//  Created by Suyeol Jeon on 7/13/16.
-//  Copyright © 2016 Suyeol Jeon. All rights reserved.
+//  Created by Jhink Solutions on 7/13/16.
+//  Copyright © 2016 Jhink Solutions. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-import URLNavigator
+import DeepNavigator
 
 final class WebViewController: UIViewController {
 
@@ -61,11 +61,11 @@ final class WebViewController: UIViewController {
 }
 
 
-// MARK: - URLNavigable
+// MARK: - DeepNavigable
 
-extension WebViewController: URLNavigable {
+extension WebViewController: DeepNavigable {
 
-    convenience init?(URL: URLConvertible, values: [String: AnyObject]) {
+    convenience init?(URL: DeepConvertible, values: [String: AnyObject]) {
         guard let URLVaue = URL.URLValue else { return nil }
         self.init()
         let request = NSURLRequest(URL: URLVaue)

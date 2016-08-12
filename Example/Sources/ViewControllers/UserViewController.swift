@@ -1,14 +1,14 @@
 //
 //  UserViewController.swift
-//  URLNavigator
+//  DeepNavigator
 //
-//  Created by Suyeol Jeon on 7/12/16.
-//  Copyright © 2016 Suyeol Jeon. All rights reserved.
+//  Created by Jhink Solutions on 7/12/16.
+//  Copyright © 2016 Jhink Solutions. All rights reserved.
 //
 
 import UIKit
 
-import URLNavigator
+import DeepNavigator
 
 final class UserViewController: UIViewController {
 
@@ -120,11 +120,11 @@ extension UserViewController: UITableViewDelegate {
 }
 
 
-// MARK: - URLNavigable
+// MARK: - DeepNavigable
 
-extension UserViewController: URLNavigable {
+extension UserViewController: DeepNavigable {
 
-    convenience init?(URL: URLConvertible, values: [String: AnyObject]) {
+    convenience init?(URL: DeepConvertible, values: [String: AnyObject]) {
         guard let username = values["username"] as? String else { return nil }
         self.init(username: username)
     }

@@ -1,14 +1,13 @@
-URLNavigator
+DeepNavigator
 ============
 
 ![Swift](https://img.shields.io/badge/Swift-2.1-orange.svg)
-[![Build Status](https://travis-ci.org/devxoul/URLNavigator.svg)](https://travis-ci.org/devxoul/URLNavigator)
-[![CocoaPods](http://img.shields.io/cocoapods/v/URLNavigator.svg)](https://cocoapods.org/pods/URLNavigator)
+[![Build Status](https://travis-ci.org/wejhink/DeepNavigator.svg)](https://travis-ci.org/wejhink/DeepNavigator)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-⛵️ URLNavigator provides an elegant way to navigate through view controllers by URLs. URL patterns can be mapped by using `URLNavigator.map(_:_:)` function.
+DeepNavigator provides an elegant way to navigate through view controllers by URLs. URL patterns can be mapped by using `DeepNavigator.map(_:_:)` function.
 
-URLNavigator can be used for mapping URL patterns with 2 kind of types: `URLNavigable` and `URLOpenHandler`. `URLNavigable` is a type which defines an custom initializer and `URLOpenHandler` is a closure which can be executed. Both an initializer and a closure receive an URL and placeholder values.
+DeepNavigator can be used for mapping URL patterns with 2 kind of types: `DeepNavigable` and `URLOpenHandler`. `DeepNavigable` is a type which defines an custom initializer and `URLOpenHandler` is a closure which can be executed. Both an initializer and a closure receive an URL and placeholder values.
 
 
 At a Glance
@@ -18,7 +17,7 @@ At a Glance
 
 URL patterns can contain placeholders. Placeholders will be replaced with matching values from URLs. Use `<` and `>` to make placeholders. Placeholders can have types: `string`(default), `int`, `float`, and `path`.
 
-Here's an example of mapping URL patterns with view controllers and a closure. View controllers should conform a protocol `URLNavigable` to be mapped with URL patterns. See [Implementing URLNavigable](#implementing-urlnavigable) section for details.
+Here's an example of mapping URL patterns with view controllers and a closure. View controllers should conform a protocol `DeepNavigable` to be mapped with URL patterns. See [Implementing DeepNavigable](#implementing-DeepNavigable) section for details.
 
 ```swift
 Navigator.map("myapp://user/<int:id>", UserViewController.self)
@@ -31,11 +30,11 @@ Navigator.map("myapp://alert") { URL, values in
 }
 ```
 
-> **Note**: Global constant `Navigator` is a shortcut for `URLNavigator.defaultNavigator()`.
+> **Note**: Global constant `Navigator` is a shortcut for `DeepNavigator.defaultNavigator()`.
 
 #### Pushing, Presenting and Opening URLs
 
-URLNavigator can push and present view controllers and execute closures with URLs.
+DeepNavigator can push and present view controllers and execute closures with URLs.
 
 Provide the `from` parameter to `pushURL()` to specify the navigation controller which the new view controller will be pushed. Similarly, provide the `from` parameter to `presentURL()` to specify the view controller which the new view controller will be presented. If the `nil` is passed, which is a default value, current application's top most view controller will be used to push or present view controllers.
 
@@ -48,30 +47,30 @@ Navigator.presentURL("myapp://post/54321", wrap: true)
 Navigator.openURL("myapp://alert?title=Hello&message=World")
 ```
 
-For full documentation, see [URLNavigator Class Reference](http://cocoadocs.org/docsets/URLNavigator/0.6.0/Classes/URLNavigator.html).
+For full documentation, see [DeepNavigator Class Reference](http://cocoadocs.org/docsets/DeepNavigator/0.6.0/Classes/DeepNavigator.html).
 
-#### Implementing URLNavigable
+#### Implementing DeepNavigable
 
-View controllers should conform a protocol `URLNavigable` to be mapped with URLs. A protocol `URLNavigable` defines an failable initializer with parameter: `URL` and `values`.
+View controllers should conform a protocol `DeepNavigable` to be mapped with URLs. A protocol `DeepNavigable` defines an failable initializer with parameter: `URL` and `values`.
 
-Parameter `URL` is an URL that is passed from `URLNavigator.pushURL()` and `URLNavigator.presentURL()`. Parameter `values` is a dictionary that contains URL placeholder keys and values.
+Parameter `URL` is an URL that is passed from `DeepNavigator.pushURL()` and `DeepNavigator.presentURL()`. Parameter `values` is a dictionary that contains URL placeholder keys and values.
 
 ```swift
-final class UserViewController: UIViewController, URLNavigable {
+final class UserViewController: UIViewController, DeepNavigable {
 
     init(userID: Int) {
         super.init(nibName: nil, bundle: nil)
         // Initialize here...
     }
 
-    convenience init?(URL: URLConvertible, values: [String : AnyObject]) {
+    convenience init?(URL: DeepConvertible, values: [String : AnyObject]) {
         // Let's assume that the user id is required
         guard let userID = values["id"] as? Int else {
             return nil
         }
         self.init(userID: userID)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -79,28 +78,22 @@ final class UserViewController: UIViewController, URLNavigable {
 }
 ```
 
-> **Note**: `URLConvertible` is a protocol that `NSURL` and `String` conforms.
+> **Note**: `DeepConvertible` is a protocol that `NSURL` and `String` conforms.
 
 
 Installation
 ------------
 
-- **For iOS 8+ projects** with [CocoaPods](https://cocoapods.org):
-
-    ```ruby
-    pod 'URLNavigator', '~> 0.6'
-    ```
-
 - **For iOS 8+ projects** with [Carthage](https://github.com/Carthage/Carthage):
 
     ```
-    github "devxoul/URLNavigator" ~> 0.6
+    github "wejhink/DeepNavigator" ~> 0.6
     ```
 
-- **For iOS 7 projects** with [CocoaSeeds](https://github.com/devxoul/CocoaSeeds):
+- **For iOS 7 projects** with [CocoaSeeds](https://github.com/wejhink/CocoaSeeds):
 
     ```ruby
-    github 'devxoul/URLNavigator', '0.6.0', :files => 'Sources/*.swift'
+    github 'wejhink/DeepNavigator', '0.6.0', :files => 'Sources/*.swift'
     ```
 
 - **Using [Swift Package Manager](https://swift.org/package-manager)**:
@@ -111,7 +104,7 @@ Installation
     let package = Package(
         name: "MyAwesomeApp",
         dependencies: [
-            .Package(url: "https://github.com/devxoul/URLNavigator", "0.6.0"),
+            .Package(url: "https://github.com/wejhink/DeepNavigator", "0.6.0"),
         ]
     )
     ```
@@ -120,11 +113,11 @@ Installation
 Example
 -------
 
-You can find an example app [here](https://github.com/devxoul/URLNavigator/tree/master/Example).
+You can find an example app [here](https://github.com/wejhink/DeepNavigator/tree/master/Example).
 
 1. Build and install the example app.
 2. Open Safari app
-3. Enter `navigator://user/devxoul` in the URL bar.
+3. Enter `navigator://user/wejhink` in the URL bar.
 4. The example app will be launched.
 
 
@@ -167,7 +160,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Navigator
         URLNavigationMap.initialize()
-        
+
         // Do something else...
     }
 }
@@ -194,7 +187,7 @@ func application(application: UIApplication,
 
 #### Implementing AppDelegate Open URL Method
 
-You'll might want to implement custom URL open handler. Here's an example of using URLNavigator with other URL open handlers.
+You'll might want to implement custom URL open handler. Here's an example of using DeepNavigator with other URL open handlers.
 
 ```swift
 func application(application: UIApplication,
@@ -207,12 +200,12 @@ func application(application: UIApplication,
         return true
     }
 
-    // URLNavigator Handler
+    // DeepNavigator Handler
     if Navigator.openURL(url) {
         return true
     }
 
-    // URLNavigator View Controller
+    // DeepNavigator View Controller
     if Navigator.presentURL(url, wrap: true) != nil {
         return true
     }
@@ -245,7 +238,7 @@ Navigator.openURL("myapp://post/12345")
 
 #### Setting Default Scheme
 
-Set `scheme` property on `URLNavigator` instance to get rid of schemes in every URLs.
+Set `scheme` property on `DeepNavigator` instance to get rid of schemes in every URLs.
 
 ```swift
 Navigator.scheme = "myapp"
@@ -272,4 +265,4 @@ Navigator.map("http://<path>", MyWebViewController.self) // `http://<path>`
 License
 -------
 
-URLNavigator is under MIT license. See the [LICENSE](LICENSE) file for more info.
+DeepNavigator is under MIT license. See the [LICENSE](LICENSE) file for more info.

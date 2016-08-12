@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Suyeol Jeon (xoul.kr)
+// Copyright (c) 2016 Jhink Solutions (jhink.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,19 +21,19 @@
 // SOFTWARE.
 
 import XCTest
-import URLNavigator
+import DeepNavigator
 
-class URLNavigatorPublicTests: XCTestCase {
+class DeepNavigatorPublicTests: XCTestCase {
 
-    var navigator: URLNavigator!
+    var navigator: DeepNavigator!
 
     override func setUp() {
         super.setUp()
-        self.navigator = URLNavigator()
+        self.navigator = DeepNavigator()
     }
 
     func testDefaultNavigator() {
-        XCTAssert(URLNavigator.defaultNavigator() === Navigator)
+        XCTAssert(DeepNavigator.defaultNavigator() === Navigator)
     }
 
     func testViewControllerForURL() {
@@ -62,14 +62,14 @@ class URLNavigatorPublicTests: XCTestCase {
 
         XCTAssertNil(self.navigator.viewControllerForURL("http://"))
         XCTAssertNil(self.navigator.viewControllerForURL("https://"))
-        XCTAssert(self.navigator.viewControllerForURL("http://xoul.kr") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://xoul.kr/resume") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=URLNavigator") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=URLNavigator") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search/?q=URLNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://jhink.com") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://jhink.com/contact") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=DeepNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=DeepNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search/?q=DeepNavigator") is WebViewController)
     }
 
-    func testPushURL_URLNavigable() {
+    func testPushURL_DeepNavigable() {
         self.navigator.map("myapp://user/<int:id>", UserViewController.self)
         let navigationController = UINavigationController(rootViewController: UIViewController())
         let viewController = self.navigator.pushURL("myapp://user/1", from: navigationController, animated: false)
@@ -85,7 +85,7 @@ class URLNavigatorPublicTests: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.count, 1)
     }
 
-    func testPresentURL_URLNavigable() {
+    func testPresentURL_DeepNavigable() {
         self.navigator.map("myapp://user/<int:id>", UserViewController.self)
         ;{
             let fromViewController = UIViewController()
@@ -118,7 +118,7 @@ class URLNavigatorPublicTests: XCTestCase {
         self.waitForExpectationsWithTimeout(1, handler: nil)
     }
 
-    func testOpenURL_URLNavigable() {
+    func testOpenURL_DeepNavigable() {
         self.navigator.map("myapp://user/<id>", UserViewController.self)
         XCTAssertFalse(self.navigator.openURL("myapp://user/1"))
     }
@@ -157,14 +157,14 @@ class URLNavigatorPublicTests: XCTestCase {
 
         XCTAssertNil(self.navigator.viewControllerForURL("http://"))
         XCTAssertNil(self.navigator.viewControllerForURL("https://"))
-        XCTAssert(self.navigator.viewControllerForURL("http://xoul.kr") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://xoul.kr/resume") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=URLNavigator") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=URLNavigator") is WebViewController)
-        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search/?q=URLNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://jhink.com") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://jhink.com/contact") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=DeepNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search?q=DeepNavigator") is WebViewController)
+        XCTAssert(self.navigator.viewControllerForURL("http://google.com/search/?q=DeepNavigator") is WebViewController)
     }
 
-    func testSchemePushURL_URLNavigable() {
+    func testSchemePushURL_DeepNavigable() {
         self.navigator.scheme = "myapp"
         self.navigator.map("/user/<int:id>", UserViewController.self)
         let navigationController = UINavigationController(rootViewController: UIViewController())
@@ -182,7 +182,7 @@ class URLNavigatorPublicTests: XCTestCase {
         XCTAssertEqual(navigationController.viewControllers.count, 1)
     }
 
-    func testSchemePresentURL_URLNavigable() {
+    func testSchemePresentURL_DeepNavigable() {
         self.navigator.scheme = "myapp"
         self.navigator.map("/user/<int:id>", UserViewController.self)
         ;{
@@ -218,7 +218,7 @@ class URLNavigatorPublicTests: XCTestCase {
         self.waitForExpectationsWithTimeout(1, handler: nil)
     }
 
-    func testSchemeOpenURL_URLNavigable() {
+    func testSchemeOpenURL_DeepNavigable() {
         self.navigator.scheme = "myapp"
         self.navigator.map("/user/<id>", UserViewController.self)
         XCTAssertFalse(self.navigator.openURL("/user/1"))
@@ -226,11 +226,11 @@ class URLNavigatorPublicTests: XCTestCase {
 
 }
 
-private class UserViewController: UIViewController, URLNavigable {
+private class UserViewController: UIViewController, DeepNavigable {
 
     var userID: Int?
 
-    convenience required init?(URL: URLConvertible, values: [String : AnyObject]) {
+    convenience required init?(URL: DeepConvertible, values: [String : AnyObject]) {
         guard let id = values["id"] as? Int else {
             return nil
         }
@@ -240,32 +240,32 @@ private class UserViewController: UIViewController, URLNavigable {
 
 }
 
-private class PostViewController: UIViewController, URLNavigable {
+private class PostViewController: UIViewController, DeepNavigable {
 
     var postTitle: String?
 
-    convenience required init?(URL: URLConvertible, values: [String : AnyObject]) {
+    convenience required init?(URL: DeepConvertible, values: [String : AnyObject]) {
         guard let title = values["title"] as? String else {
             return nil
         }
         self.init()
         self.postTitle = title
     }
-    
+
 }
 
-private class WebViewController: UIViewController, URLNavigable {
+private class WebViewController: UIViewController, DeepNavigable {
 
-    var URL: URLConvertible?
+    var URL: DeepConvertible?
 
-    convenience required init?(URL: URLConvertible, values: [String : AnyObject]) {
+    convenience required init?(URL: DeepConvertible, values: [String : AnyObject]) {
         self.init()
         self.URL = URL
     }
 
 }
 
-private class SearchViewController: UIViewController, URLNavigable {
+private class SearchViewController: UIViewController, DeepNavigable {
 
     let query: String
 
@@ -274,13 +274,13 @@ private class SearchViewController: UIViewController, URLNavigable {
         super.init(nibName: nil, bundle: nil)
     }
 
-    convenience required init?(URL: URLConvertible, values: [String: AnyObject]) {
+    convenience required init?(URL: DeepConvertible, values: [String: AnyObject]) {
         guard let query = URL.queryParameters["query"] else {
             return nil
         }
         self.init(query: query)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

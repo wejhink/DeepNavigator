@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2016 Suyeol Jeon (xoul.kr)
+// Copyright (c) 2016 Jhink Solutions (jhink.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +22,10 @@
 
 import UIKit
 
-/// URLNavigator provides an elegant way to navigate through view controllers by URLs. URLs should be mapped by using
-/// `URLNavigator.map(_:_:)` function.
+/// DeepNavigator provides an elegant way to navigate through view controllers by URLs. URLs should be mapped by using
+/// `DeepNavigator.map(_:_:)` function.
 ///
-/// URLNavigator can be used to map URLs with 2 kind of types: `URLNavigable` and `URLOpenHandler`. `URLNavigable` is
+/// DeepNavigator can be used to map URLs with 2 kind of types: `DeepNavigable` and `URLOpenHandler`. `DeepNavigable` is
 /// a type which defines an custom initializer and `URLOpenHandler` is a closure. Both an initializer and a closure
 /// have URL and values for its parameters.
 ///
@@ -39,7 +39,7 @@ import UIKit
 /// This URL can be used to push or present the `UserViewController` by providing URLs:
 ///
 ///     Navigator.pushURL("myapp://user/123")
-///     Navigator.presentURL("http://xoul.kr")
+///     Navigator.presentURL("http://jhink.com")
 ///
 /// This is another example of mapping `URLOpenHandler` to URL:
 ///
@@ -48,20 +48,20 @@ import UIKit
 ///         return true
 ///     }
 ///
-/// Use `URLNavigator.openURL()` to execute closures.
+/// Use `DeepNavigator.openURL()` to execute closures.
 ///
 ///     Navigator.openURL("myapp://say-hello") // prints "Hello, world!"
 ///
 /// - Note: Use `UIApplication.openURL()` method to launch other applications or to open URLs in application level.
 ///
-/// - SeeAlso: `URLNavigable`
-public class URLNavigator {
+/// - SeeAlso: `DeepNavigable`
+public class DeepNavigator {
 
     /// A closure type which has URL and values for parameters.
-    public typealias URLOpenHandler = (URL: URLConvertible, values: [String: AnyObject]) -> Bool
+    public typealias URLOpenHandler = (URL: DeepConvertible, values: [String: AnyObject]) -> Bool
 
     /// A dictionary to store URLNaviables by URL patterns.
-    private(set) var URLMap = [String: URLNavigable.Type]()
+    private(set) var URLMap = [String: DeepNavigable.Type]()
 
     /// A dictionary to store URLOpenHandlers by URL patterns.
     private(set) var URLOpenHandlers = [String: URLOpenHandler]()
@@ -88,18 +88,18 @@ public class URLNavigator {
     // MARK: Initializing
 
     public init() {
-        // ⛵ I'm an URLNavigator!
+        // ⛵ I'm an DeepNavigator!
     }
 
 
     // MARK: Singleton
 
-    /// Returns a default navigator. A global constant `Navigator` is a shortcut of `URLNavigator.defaultNavigator()`.
+    /// Returns a default navigator. A global constant `Navigator` is a shortcut of `DeepNavigator.defaultNavigator()`.
     ///
     /// - SeeAlso: `Navigator`
-    public static func defaultNavigator() -> URLNavigator {
+    public static func defaultNavigator() -> DeepNavigator {
         struct Shared {
-            static let defaultNavigator = URLNavigator()
+            static let defaultNavigator = DeepNavigator()
         }
         return Shared.defaultNavigator
     }
@@ -107,15 +107,15 @@ public class URLNavigator {
 
     // MARK: URL Mapping
 
-    /// Map an `URLNavigable` to an URL pattern.
-    public func map(URLPattern: URLConvertible, _ navigable: URLNavigable.Type) {
-        let URLString = URLNavigator.normalizedURL(URLPattern, scheme: self.scheme).URLStringValue
+    /// Map an `DeepNavigable` to an URL pattern.
+    public func map(URLPattern: DeepConvertible, _ navigable: DeepNavigable.Type) {
+        let URLString = DeepNavigator.normalizedURL(URLPattern, scheme: self.scheme).URLStringValue
         self.URLMap[URLString] = navigable
     }
 
     /// Map an `URLOpenHandler` to an URL pattern.
-    public func map(URLPattern: URLConvertible, _ handler: URLOpenHandler) {
-        let URLString = URLNavigator.normalizedURL(URLPattern, scheme: self.scheme).URLStringValue
+    public func map(URLPattern: DeepConvertible, _ handler: URLOpenHandler) {
+        let URLString = DeepNavigator.normalizedURL(URLPattern, scheme: self.scheme).URLStringValue
         self.URLOpenHandlers[URLString] = handler
     }
 
@@ -127,7 +127,7 @@ public class URLNavigator {
     ///
     /// For example:
     ///
-    ///     let (URLPattern, values) = URLNavigator.matchURL("myapp://user/123", from: ["myapp://user/<int:id>"])
+    ///     let (URLPattern, values) = DeepNavigator.matchURL("myapp://user/123", from: ["myapp://user/<int:id>"])
     ///
     /// The value of the `URLPattern` from an example above is `"myapp://user/<int:id>"` and the value of the `values` 
     /// is `["id": 123]`.
@@ -136,9 +136,9 @@ public class URLNavigator {
     /// - Parameter from: The array of URL patterns.
     ///
     /// - Returns: A tuple of URL pattern string and a dictionary of URL placeholder values.
-    static func matchURL(URL: URLConvertible, scheme: String? = nil,
+    static func matchURL(URL: DeepConvertible, scheme: String? = nil,
                          from URLPatterns: [String]) -> (String, [String: AnyObject])? {
-        let normalizedURLString = URLNavigator.normalizedURL(URL, scheme: scheme).URLStringValue
+        let normalizedURLString = DeepNavigator.normalizedURL(URL, scheme: scheme).URLStringValue
         let URLPathComponents = normalizedURLString.componentsSeparatedByString("/") // e.g. ["myapp:", "user", "123"]
 
         outer: for URLPattern in URLPatterns {
@@ -179,8 +179,8 @@ public class URLNavigator {
     ///
     /// - Parameter URL: The URL to find view controllers.
     /// - Returns: A match view controller or `nil` if not matched.
-    public func viewControllerForURL(URL: URLConvertible) -> UIViewController? {
-        if let (URLPattern, values) = URLNavigator.matchURL(URL, scheme: self.scheme, from: Array(self.URLMap.keys)) {
+    public func viewControllerForURL(URL: DeepConvertible) -> UIViewController? {
+        if let (URLPattern, values) = DeepNavigator.matchURL(URL, scheme: self.scheme, from: Array(self.URLMap.keys)) {
             let navigable = self.URLMap[URLPattern]
             return navigable?.init(URL: URL, values: values) as? UIViewController
         }
@@ -208,7 +208,7 @@ public class URLNavigator {
     ///
     /// - Returns: The pushed view controller. Returns `nil` if there's no matching view controller or failed to push
     ///            a view controller.
-    public func pushURL(URL: URLConvertible,
+    public func pushURL(URL: DeepConvertible,
                         from: UINavigationController? = nil,
                         animated: Bool = true) -> UIViewController? {
         guard let viewController = self.viewControllerForURL(URL) else {
@@ -259,7 +259,7 @@ public class URLNavigator {
     ///
     /// - Returns: The presented view controller. Returns `nil` if there's no matching view controller or failed to
     ///     present a view controller.
-    public func presentURL(URL: URLConvertible,
+    public func presentURL(URL: DeepConvertible,
                            wrap: Bool = false,
                            from: UIViewController? = nil,
                            animated: Bool = true,
@@ -306,9 +306,9 @@ public class URLNavigator {
     /// - Parameter URL: The URL to find `URLOpenHandler`s.
     ///
     /// - Returns: The return value of the matching `URLOpenHandler`. Returns `false` if there's no match.
-    public func openURL(URL: URLConvertible) -> Bool {
+    public func openURL(URL: DeepConvertible) -> Bool {
         let URLOpenHandlersKeys = Array(self.URLOpenHandlers.keys)
-        if let (URLPattern, values) = URLNavigator.matchURL(URL, scheme: self.scheme, from: URLOpenHandlersKeys) {
+        if let (URLPattern, values) = DeepNavigator.matchURL(URL, scheme: self.scheme, from: URLOpenHandlersKeys) {
             let handler = self.URLOpenHandlers[URLPattern]
             if handler?(URL: URL, values: values) == true {
                 return true
@@ -320,8 +320,8 @@ public class URLNavigator {
 
     // MARK: Utils
 
-    /// Returns an scheme-appended `URLConvertible` if given `URL` doesn't have its scheme.
-    static func URLWithScheme(scheme: String?, _ URL: URLConvertible) -> URLConvertible {
+    /// Returns an scheme-appended `DeepConvertible` if given `URL` doesn't have its scheme.
+    static func URLWithScheme(scheme: String?, _ URL: DeepConvertible) -> DeepConvertible {
         let URLString = URL.URLStringValue
         if let scheme = scheme where !URLString.containsString("://") {
             #if DEBUG
@@ -345,11 +345,11 @@ public class URLNavigator {
     /// - Parameter URL: The dirty URL to be normalized.
     ///
     /// - Returns: The normalized URL. Returns `nil` if the pecified URL is invalid.
-    static func normalizedURL(dirtyURL: URLConvertible, scheme: String? = nil) -> URLConvertible {
+    static func normalizedURL(dirtyURL: DeepConvertible, scheme: String? = nil) -> DeepConvertible {
         guard dirtyURL.URLValue != nil else {
             return dirtyURL
         }
-        var URLString = URLNavigator.URLWithScheme(scheme, dirtyURL).URLStringValue
+        var URLString = DeepNavigator.URLWithScheme(scheme, dirtyURL).URLStringValue
         URLString = URLString.componentsSeparatedByString("?")[0].componentsSeparatedByString("#")[0]
         URLString = self.replaceRegex(":/{3,}", "://", URLString)
         URLString = self.replaceRegex("(?<!:)/{2,}", "/", URLString)
@@ -406,4 +406,4 @@ public class URLNavigator {
 
 // MARK: - Default Navigator
 
-public let Navigator = URLNavigator.defaultNavigator()
+public let Navigator = DeepNavigator.defaultNavigator()
